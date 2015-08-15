@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tarena.dao.WebInfoMapper">
+	<select id="webInfoFindAll" resultType="com.tarena.entity.WebInfo">
+		select * from web_info
+	</select>
+	
+	<update id="webInfoUpdate" parameterType="com.tarena.entity.WebInfo">
+		update web_info set web_title=#{web_title,jdbcType=VARCHAR},
+							web_words=#{web_words,jdbcType=VARCHAR},
+							web_nav1=#{web_nav1,jdbcType=VARCHAR},
+							web_nav2=#{web_nav2,jdbcType=VARCHAR},
+							web_nav3=#{web_nav3,jdbcType=VARCHAR},
+							web_nav4=#{web_nav4,jdbcType=VARCHAR},
+							web_footer=#{web_footer,jdbcType=VARCHAR},
+							web_maker=#{web_maker,jdbcType=VARCHAR} where web_id = #{web_id,jdbcType=VARCHAR}
+	</update>
+	
+	<delete id="webInfoDelete">
+		delete from web_info where web_id = #{web_id}
+	</delete>
+	
+	<insert id="webInfoAdd" parameterType="com.tarena.entity.WebInfo">
+		insert into web_info values(
+				#{web_id,jdbcType=VARCHAR},
+				#{web_title,jdbcType=VARCHAR},
+				#{web_words,jdbcType=VARCHAR},
+				#{web_nav1,jdbcType=VARCHAR},
+				#{web_nav2,jdbcType=VARCHAR},
+				#{web_nav3,jdbcType=VARCHAR},
+				#{web_nav4,jdbcType=VARCHAR},
+				#{web_footer,jdbcType=VARCHAR},
+				#{web_maker,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<select id="webInfoFindById" resultType="com.tarena.entity.WebInfo">
+		select * from web_info where web_id = #{web_id}
+	</select>
+	
+	
+	<!-- single -->
+	<select id="singleFindAll" resultType="com.tarena.entity.WebInfo">
+		select * from web_info_single
+	</select>
+	
+	<insert id="singleInsert" parameterType="com.tarena.entity.WebInfo">
+		insert into web_info_single values(
+				#{web_id,jdbcType=VARCHAR},
+				#{web_title,jdbcType=VARCHAR},
+				#{web_words,jdbcType=VARCHAR},
+				#{web_nav1,jdbcType=VARCHAR},
+				#{web_nav2,jdbcType=VARCHAR},
+				#{web_nav3,jdbcType=VARCHAR},
+				#{web_nav4,jdbcType=VARCHAR},
+				#{web_footer,jdbcType=VARCHAR},
+				#{web_maker,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<update id="singleUpdate" parameterType="com.tarena.entity.WebInfo">
+		update web_info_single set web_id=#{web_id,jdbcType=VARCHAR},
+							web_title=#{web_title,jdbcType=VARCHAR},
+							web_words=#{web_words,jdbcType=VARCHAR},
+							web_nav1=#{web_nav1,jdbcType=VARCHAR},
+							web_nav2=#{web_nav2,jdbcType=VARCHAR},
+							web_nav3=#{web_nav3,jdbcType=VARCHAR},
+							web_nav4=#{web_nav4,jdbcType=VARCHAR},
+							web_footer=#{web_footer,jdbcType=VARCHAR},
+							web_maker=#{web_maker,jdbcType=VARCHAR} 
+	</update>
+</mapper>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tarena.dao.ActivityMapper">
+	<resultMap id="resultActivity" type="com.tarena.entity.Activity">
+	    <id property="activity_id " column="activity_id " />
+	    <result property="activity_title " column="activity_title " />
+	    <result property="activity_body " column="activity_body " />
+	    <result property="activity_time  " column="activity_time  " />
+	    
+	</resultMap>
+
+	<insert id="addActivity" parameterType="com.tarena.entity.Activity">
+		insert into cn_activity values(
+		#{activity_id ,jdbcType=VARCHAR},
+		#{activity_title,jdbcType=VARCHAR},
+		#{activity_body,jdbcType=VARCHAR},
+		#{activity_time,jdbcType=TIMESTAMP}
+		)
+	</insert>
+
+	<select id="find" resultType="com.tarena.entity.Activity">
+		select activity_id,activity_title,activity_body,activity_time
+		 from cn_activity  
+	</select> 
+	
+	<delete id="deleteActivity" >
+		delete from cn_activity where activity_id =#{activity_id }
+	</delete> 
+	
+		<update id="update" parameterType="com.tarena.entity.Activity">
+	    update cn_activity set 
+		   activity_title=#{activity_title,jdbcType=VARCHAR},
+		   activity_body=#{activity_body,jdbcType=VARCHAR}
+		 where activity_id=#{activity_id,jdbcType=CHAR}
+	</update>
+	
+	<select id="findById" parameterType="String" resultType="com.tarena.entity.Activity">
+	    select * from cn_activity where activity_id=#{activity_id,jdbcType=CHAR}
+	</select>
+</mapper>

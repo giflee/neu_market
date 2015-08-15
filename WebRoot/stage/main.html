@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<!-- BEGIN HEAD -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>超级外卖微信订餐系统_超级外卖微信订餐系统</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="{key}" name="description">
+<meta content="{des}" name="author">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <link href="../css/main.css" rel="stylesheet" type="text/css">
+ <script src="../js/jquery.js"></script>
+ <script type="text/javascript" src="../js/stage/main.js"></script>
+<script src="../js/cookie.js"></script>
+<script type="text/javascript" src="../js/stage/page_pre.js"></script>
+<script type="text/javascript" src="../js/stage/base.js"></script>
+<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../css/font-awesome.min.css" rel="stylesheet"
+	type="text/css">
+<link href="../css/css.css" rel="stylesheet" type="text/css">
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/stickUp.min.js"></script>
+<style type="text/css">
+
+
+</style>
+</head>
+<!-- BEGIN BODY -->
+<body>
+
+	<div class="head_top hidden-xs" style="margin-bottom:20px;">
+		<div class="container">
+			<span id="user_name">您好</span>，<span id="info_words">欢迎光临网上超市系统！</span> <a  style="cursor: pointer;" rel="nofollow" onclick="logout();" disabled >退出</a><span class="pull-right">
+			<a
+				href="register.html" rel="nofollow" id="user_register">注册</a> <a rel="nofollow"
+				href="userlogin.html" id="user_login">登录</a> <a href="order.html" rel="nofollow" id="user_order">我的订单</a>
+			</span>
+		</div>
+	</div>
+	<div class="container hidden-xs" style="margin-top:5px;">
+		<div class="row hidden-xs">
+			<div class="col-md-3 col-xs-7">
+				<a href="#"><img src="../images/logo.png">
+				</a>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-5"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2 col-xs-5"></div>
+		</div>
+	</div>
+	
+	
+	<!-- begin container -->
+	<div class="container hidden-xs">
+		<div class="masthead">
+			<ul class="nav nav-justified">
+				<li><a href="main.html">首页</a></li>
+				<li><a href="activityArticle.html">优惠活动</a></li>
+				<li><a href="order.html" >我的订单</a></li>
+				<li><a href="problemArticle.html">帮助中心</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	
+	<!-- begin container -->
+	<div class="container">
+		<div class="row top5">
+			<div class="col-md-2 col-sm-6 hidden-xs">
+				<div class="navbar-wrapper stuckMenu"
+					style="position: relative; top: 0px;">
+					<ul class="list-unstyled">
+						<li><a href="javascript:void(0);"
+							class="list-group-item list-group-item-warning"><span
+								style="margin-left:10px;">浏览菜单</span>
+						</a>
+						</li>
+
+					</ul>
+
+
+
+				</div>
+			</div>
+			<div class="col-md-7 hidden-sm">
+				<div class="row top5" id="goods_list">
+
+
+				</div>
+<ul class="pagination" id="page_field">
+<!-- 
+ <li><a  href="javascript:void(0);"> 上一页 </a></li>         
+ <li><a href="javascript:void(0);"> 1 </a></li>         
+ <li><a style="background-color: #AAAAAA" href="javascript:void(0);">2 </a></li>         
+ <li><a href="javascript:void(0);"> 3 </a></li>         
+ <li><a href="javascript:void(0);"> 下一页 </a></li>         
+ -->
+   </ul>
+			</div>
+			<div class="col-md-3 col-sm-6 hidden-xs">
+				<div class="navbar-wrappers stuckMenu"
+					style="position: relative; top: 0px;">
+					<div style="background-color:#FF7700" class="panel panel-cart top5">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a href="http://demo.bijiadao.net/#collapseOne"
+									data-parent="#accordion" data-toggle="collapse"> <i
+									class="fa fa-shopping-cart"></i> 购物车 <i
+									class="fa fa-angle-down"></i> <span
+									class="simpleCart_quantity pull-right">0</span> </a>
+							</h4>
+						</div>
+						<div class="panel-collapse collapse in" id="collapseOne">
+							<div style="padding:5px;" class="panel-body">
+								<div style="max-height:250px;overflow:auto;">
+									<div class="simpleCart_items">
+										<div>
+											<div class="headerRow">
+												<div class="item-name">商品</div>
+												<div class="item-decrement"></div>
+												<div class="item-quantity">数量</div>
+												<div class="item-increment"></div>
+												<div class="item-total">总价</div>
+												<div class="item-remove"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div style="clear:left"></div>
+								<hr class="top5">
+								<div class="count">
+									数量: <span class="simpleCart_quantity">0</span>
+								</div>
+								<!-- <div class="ship">
+									配送费: <span class="simpleCart_shipping">¥100.00</span> (含打包费)
+								</div> -->
+								<p class="grand">
+									合计总额: <span class="simpleCart_grandTotal">¥100.00</span>
+								</p>
+								<p align="center">
+									<span style="margin-right:20px;" class="pull-right"><a
+										href="javascript:;" class="simpleCart_empty">清空</a> </span> <a id="buy_it"
+										data-toggle="modal"  onclick="buy();"
+										class="btn btn-warning"><i class="fa fa-shopping-cart" ></i>
+										立刻结算</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<div class="footer"><div class="container"><p align="center">© 2014 超级外卖微信订餐系统 　ICP备19042558号
+
+ 　　</p><p align="center" class="ps">程序由<a title="超级外卖" href="http://www.bijiadao.net/">超级外卖</a>提供</p></div></div>
+	
+	
+<div class="modal fade in" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal_goods_name" aria-hidden="false" style="display: none;"> 
+	<div class="modal-dialog">
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        		<h4 class="modal-title" id="modal_goods_name">菌菇四宝汤</h4>
+      		</div>
+      		<div class="modal-body">
+	  
+		 		<div class="row top5">
+	            	<div class="col-md-6 ">
+	  					<div class="thumbnail">
+	 						<img src="../images/5337c594177b7.jpg" class="img-responsive" id="goods_show_pic">
+						</div>
+	             	</div>
+				   	<div class="col-md-6 simpleCart_shelfItem">
+				   
+						<h1 style="font-size:20px;" class="item_name" id="goods_show_name">菌菇四宝汤</h1>
+	 					<hr> 
+						<div class="well "> 
+							<p>价格：<span class="item_price" style="color:#FF7700;font-weight:600;font-size:14px" id="goods_show_price"> 10.00 </span></p>
+			
+							<p>数量：<input style="padding:5px 5px 5px 10px;width:40px;" value="1" size="2" class="item_Quantity" type="text" id="goods_show_num"></p>
+	    
+							<p>	<span class="pull-right "><a href="javascript:;" class="btn btn-warning  item_add"><i class="fa fa-shopping-cart"></i> 加入购物车</a> </span></p>
+							<div class="clearfix"></div>
+						</div>		
+				 	</div>
+	            </div>		  
+		  		<hr>
+	       		<p></p>
+      		</div>
+      
+    	</div><!-- /.modal-content -->
+  	</div><!-- /.modal-dialog -->
+</div>
+  
+  
+  
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel">用户登录</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class=" col-lg-2 col-xs-12"></div>
+						<!-- end col-8-->
+						<!-- <div class="col-lg-8 ">
+								<div class="form-group"
+									style="margin-left:0px;margin-right:0px;">
+									<label for="exampleInputEmail1">用户名</label> <input type="text"
+										class="form-control " id="exampleInputEmail1" name="username"
+										placeholder="" datatype="*" errormsg="用户名不可以为空！">
+								</div>
+								<div class="form-group "
+									style="margin-left:0px;margin-right:0px;">
+									<label for="exampleInputPassword1">密码</label> <input
+										type="password" class="form-control"
+										id="exampleInputPassword1" name="password" datatype="*"
+										errormsg="密码不可以为空！" 　placeholder="">
+								</div>
+								<div class="form-group"
+									style="margin-left:0px;margin-right:0px;">
+								</div>
+								<div class="form-group">
+									<div class=" col-sm-12">
+										<button onclick="login();" class="btns blue btn-block" >登录</button>
+										<br>
+										<p style="text-align:center">
+											<a href="javascript:void(0);"
+												class="btn btn-danger btn-block" >新会员注册</a> <a href="cart.html"
+												class="btn btn-default btn-block" id="buy_for_nologin">不注册直接下单</a>
+										</p>
+									</div>
+								</div>
+						</div> -->
+					<div class="login-main">
+    <div class="content">
+        <div class="login-panel">
+            <h1>用户登录</h1>
+            <label id="lable_user_login_account">账号</label>
+            <input class="user-name" type="text" id="user_login_user_name" placeholder="" >
+            
+            <!-- 
+                              密码错误提示如下切换
+            <label class="error-text">密码错误</label>
+            <input class="password error" type="password">                             
+             -->
+             
+             
+            <label id="lable_user_login_password">密码</label>
+            <input class="password" id="user_login_password" type="password" >
+
+            <div class="row">
+                <a href="../stage/forget_password.html">忘记密码？</a>
+            </div>
+            <button class="btn-login" onclick="login()">登 录</button>
+            <div class="row">
+                <span>没有账号？</span>
+                <a href="register.html">立即注册！</a>
+            </div>
+        </div>
+    </div>
+</div>
+							
+						<!-- end col-4-->
+						<div class=" col-lg-2 "></div>
+					</div>
+					<!-- end row -->
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	<script src="../js/simpleCart.min.js"></script>
+	<link href="../css/cart-min.css" rel="stylesheet" type="text/css">
+	<script>
+		simpleCart({
+			currency : "JPY",
+			shippingQuantityRate : 0,
+			shippingTotalRate : 0,
+			shippingFlatRate : 0,
+			cartColumns : [ {
+				attr : "name",
+				label : "商品"
+			},
+			//{ attr: "price" , label: "单价", view: 'currency' } ,
+			{
+				view : "decrement",
+				label : false,
+				text : "-"
+			}, {
+				attr : "quantity",
+				label : "数量"
+			}, {
+				view : "increment",
+				label : false,
+				text : "+"
+			}, {
+				attr : "total",
+				label : "总价",
+				view : 'currency'
+			} ]
+		});
+	</script>
+	<script>
+	</script>
+	<div class="container navbar-fixed-bottom visible-xs"
+		style="background-color:#FFF;">
+		<div class="row ">
+
+			<div class="col-md-3 col-xs-3">
+				<a class="icon-btn"
+					href="#"> <i
+					class="fa fa-home"></i>
+					<div>首页</div> </a>
+			</div>
+			<div class=" col-xs-3">
+				<div class="btn-group dropup">
+					<a class="icon-btn dropdown-toggle" data-toggle="dropdown"> <i
+						class="fa fa-th-large"></i>
+						<div>菜品分类</div> </a>
+					<ul class="dropdown-menu ul_list" style="min-width:245px;" role="menu">
+						<li><a class="btn"
+							href="javascript:void(0);">果干蜜饯</a>
+						</li>
+						<li class="divider"></li>
+						<li><a class="btn"
+							href="javascript:void(0);">牛奶饮品</a>
+						</li>
+						<li class="divider"></li>
+						<li><a class="btn"
+							href="javascript:void(0);">动感酷饮</a>
+						</li>
+						<li class="divider"></li>
+						<li><a class="btn"
+							href="javascript:void(0);">零食饼干</a>
+						</li>
+						<li class="divider"></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-3 col-xs-3">
+				<div class="btn-group dropup">
+					<a class="icon-btn"
+						href="http://demo.bijiadao.net/index.php?m=member&a=index"> <i
+						class="fa fa-user"></i>
+						<div>我的订单</div> </a>
+				</div>
+			</div>
+			<div class="col-md-3 col-xs-3">
+				<a class="icon-btn"
+					href="http://demo.bijiadao.net/index.php?m=cart&a=index"> <i
+					class="fa fa-shopping-cart"></i>
+					<div>购物车</div> <span class="badge"> <span
+						class="simpleCart_quantity ">0</span> </span> </a>
+			</div>
+		</div>
+	</div>
+	<div class="container"></div>
+	<!-- Modal -->
+	<div class="modal fade" id="modal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"></div>
+	<!-- /.modal -->
+	<script type="text/javascript">
+		//initiating jQuery
+		jQuery(function($) {
+			$(document).ready(function() {
+				//enabling stickUp on the '.navbar-wrapper' class
+				$('.navbar-wrapper').stickUp();
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		//initiating jQuery
+		jQuery(function($) {
+			$(document).ready(function() {
+				//enabling stickUp on the '.navbar-wrapper' class
+				$('.navbar-wrappers').stickUp();
+			});
+		});
+	</script>
+	
+	<script type="text/javascript" src="../js/stage/main.js">
+	
+		
+	
+	</script>
+	<!-- 新增加部分 -->
+	 <script type="text/javascript" src="../js/page_webInfo.js"></script>
+	 <script type="text/javascript">
+	 	$(function(){	 		
+	 		replaceInfo();
+	 	});
+	 </script>
+	<!-- END BODY -->
+</body>
+</html>

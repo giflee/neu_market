@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://demo.bijiadao.net/index.php?m=public&a=register -->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>用户注册-超级外卖微信订餐系统</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="description">
+<meta content="" name="author">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../css//font-awesome.min.css" rel="stylesheet"
+	type="text/css">
+<link href="../css/css.css" rel="stylesheet" type="text/css">
+<script src="../js/jquery.js"></script>
+ <script type="text/javascript" src="../js/stage/main.js"></script>
+<script src="../js/cookie.js"></script>
+<script type="text/javascript" src="../js/stage/base.js"></script>
+<script type="text/javascript" src="../js/stage/page_pre.js"></script>
+<script type="text/javascript" src="../js/stage/page_order.js"></script>
+
+
+</head>
+<!-- BEGIN BODY -->
+<body>
+
+	<div class="head_top hidden-xs" style="margin-bottom:20px;">
+		<div class="container">
+			<span id="user_name">您好</span>，欢迎光临网上超市系统！ <a  rel="nofollow" onclick="logout();" disabled>退出</a><span class="pull-right">
+			<a
+				href="register.html" rel="nofollow" id="user_register">注册</a> <a rel="nofollow"
+				href="userlogin.html" id="user_login">登录</a> <a href="order.html" rel="nofollow" id="user_order">我的订单</a>
+			</span>
+		</div>
+	</div>
+	<div class="container hidden-xs" style="margin-top:5px;">
+		<div class="row hidden-xs">
+			<div class="col-md-3 col-xs-7">
+				<a href="#"><img src="../images/logo.png"></a>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-5"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2 col-xs-5"></div>
+		</div>
+	</div>
+	<!-- begin container -->
+	<div class="container hidden-xs">
+		<div class="masthead">
+			<ul class="nav nav-justified">
+				<li><a href="main.html">首页</a></li>
+				<li><a href="activityArticle.html">优惠活动</a></li>
+				<li><a href="order.html" >我的订单</a></li>
+				<li><a href="problemArticle.html">帮助中心</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+
+	<div class=" container " style="margin-top:10px">
+		<div class="panel panel-default" style="min-height:600px">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-xs-12 ">
+						<h3>订单详情</h3>
+						
+						<div class="row">
+							<div class="col-md-7 col-sm-12"></div>
+							<div class="col-md-5 col-sm-12">
+								<ul class="pagination pull-right">
+									<li><a href="order.html"> 返回订单列表 </a></li>
+								</ul>
+							</div>
+						</div>
+						<div id="ajax_target">
+
+
+
+							
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<h2 class="panel-title">订单详情</h2>
+										<br>
+										<div class="row">
+											<div class="col-md-4">
+											
+											</div>
+											<div class="col-md-8">
+												<div class="panel panel-default">
+													<div class="panel-heading">
+														<b>商户：</b> <span class="pull-right">订单状态：<span
+															class="orderd"> </span></span>
+													</div>
+													<div class="panel-body">
+														<table class="table tp">
+															<thead>
+																<tr>
+																	<td>菜品</td>
+																	<td>单价</td>
+																	<td>数量</td>
+																	<td>小计</td>
+																	<td></td>
+																</tr>
+															</thead>
+															<tbody id="detail_body">
+																
+															</tbody>
+														</table>
+													</div>
+													<div class="panel-footer">
+														配送费用：<span >0</span>元 订单总额：<span
+															class="orderd_total"></span>元
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							
+
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="footer">
+		<div class="container">
+			<p align="center">© 2014 超级外卖微信订餐系统 ICP备19042558号</p>
+			<p align="center" class="ps">
+				程序由<a title="超级外卖" href="http://www.bijiadao.net/">超级外卖</a>提供
+			</p>
+		</div>
+	</div>
+
+
+
+
+
+
+
+	<!-- end container -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/Validform_v5.3.2_min.js"></script>
+	<script type="text/javascript" src="../js/stage/page_orderDetail.js"></script>
+	<script>
+		$(function() {
+			//$(".registerform").Validform();  //就这一行代码！;
+
+			$(".form-horizontal").Validform({
+				tiptype : 2
+			});
+		})
+	</script>
+	<script type="text/javascript" src="../js/page_webInfo.js"></script>
+	 <script type="text/javascript">
+	 	$(function(){	 		
+	 		replaceInfo();
+	 	});
+	 </script>
+	<!-- END CORE PLUGINS -->
+
+	<!-- END JAVASCRIPTS -->
+
+	<!-- END BODY -->
+</body>
+</html>

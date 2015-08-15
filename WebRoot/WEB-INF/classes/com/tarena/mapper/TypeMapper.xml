@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tarena.dao.TypeMapper">
+	<select id="findAll" resultType="com.tarena.entity.Type">
+		select * from cn_type
+	</select>
+	
+	<select id="findTypeNum" resultType="Integer">
+		select count(*) from cn_goods where type_id=#{goodsId}
+	</select>
+	
+	<select id="findByName" resultType="com.tarena.entity.Type">
+		select * from cn_type where type_name like CONCAT('%',#{type_name},'%')
+	</select>
+	
+	<insert id="addType" parameterType="com.tarena.entity.Type">
+		insert into cn_type values(#{type_id,jdbcType=VARCHAR},#{type_name,jdbcType=VARCHAR})
+	</insert>
+	
+	<delete id="deleteType" parameterType="String"> 
+		delete from cn_type where type_id=#{type_id}
+	</delete>
+</mapper>

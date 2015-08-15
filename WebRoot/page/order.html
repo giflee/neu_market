@@ -1,0 +1,98 @@
+<div class="uk-container uk-container-center">
+<div class="uk-clearfix control-bar" data-uk-sticky="{top:56}">
+    <div class="uk-clearfix">
+        <button id="order_btn_search_panel" class="uk-button uk-button-large uk-margin-right uk-float-left"
+                data-uk-toggle="{target:'.search-panel'}">
+            <i class="uk-icon-search"></i>
+            <i class="uk-icon-angle-down"></i>
+        </button>  
+    </div>
+    <div class="uk-grid uk-form uk-hidden search-panel" data-uk-grid-margin>
+        <div class="uk-width" style="width:200px;">
+            <label>配送状态</label>
+            <input class="" type="text" id="order_status">
+        </div>
+		<div class="uk-width" style="width:200px;">
+            <label>联系方式</label>
+            <input class="" type="text" id="address_phone">
+        </div>
+        <div class="uk-width uk-vertical-align" style="width:100px;">
+            <button class="uk-button uk-vertical-align-bottom" id="order_btn_search">查询</button>
+        </div>
+    </div>
+</div>
+
+<div class="data-table">
+    <table class="uk-table uk-table-hover uk-table-striped">
+        <thead>
+        <tr>
+            <th><input type="checkbox"></th>
+            <th>收件人</th>
+            <th>联系方式</th>
+			<th>收货地址</th>
+            <th>总价</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody id="order_tbody">
+     
+        </tbody>
+    </table>
+</div>
+<div class="uk-float-right">
+    <ul class="uk-pagination" ></ul>
+</div>
+
+</div>
+<!-- 查看订单商品模态对话框 -->
+<div id="order_detail_panel" class="uk-modal">
+    <div class="uk-modal-dialog ">
+        <h2>订单信息</h2>
+		<div class="uk-overflow-container">
+		        <table class="uk-table uk-table-hover uk-table-striped">
+		            <thead>
+		            <tr>
+		                <th>商品名称</th>
+		                <th>商品单价</th>
+		                <th>商品数量</th>
+		                <th>商品总价</th>
+		            </tr>
+		            </thead>
+		            <tbody id="goodsOrder_body">
+		            </tbody>
+		        </table>
+	   		 </div>
+        <form class="uk-form">
+            <fieldset>
+                <legend>收货信息</legend>
+                <div class="uk-form-row">
+                    <label>收件人</label>
+                    <input type="text" id="person_og" placeholder="" value="刘喜" disabled>
+                </div>
+                <div class="uk-form-row">
+                    <label>联系方式</label>
+                    <input type="text" id="phone_og" placeholder="" value="1352149308" disabled>
+                </div>
+                <div class="uk-form-row">
+                    <label>总价</label>
+                    <input type="text" id="price_og" placeholder="" value="200元" disabled>
+                </div>
+                <div class="uk-form-row">
+                    <label>收货地址</label>
+                    <input type="text" placeholder="" id="address_og" value="东北大学三舍C区420" disabled>
+                </div>
+                 <div class="uk-form-row">
+                    <label>备注</label>
+                    <input type="text" placeholder="" id="mark_og" value="wu" disabled>
+                </div>
+            </fieldset>
+            <hr class="uk-article-divider">
+            <div class="uk-clearfix">
+                <button class="uk-button uk-button-large uk-float-right uk-modal-close">返回</button>
+             
+            </div>
+       </form>
+</div>
+<script src="js/base.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/page_order.js"></script>

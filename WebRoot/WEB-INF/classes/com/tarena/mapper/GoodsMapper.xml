@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tarena.dao.GoodsMapper">
+	<resultMap id="resultGoodsTypeList" type="com.tarena.entity.Goods">
+	    <id property="goods_id" column="goods_id" />
+	    <result property="goods_name" column="goods_name" />
+	    <result property="goods_pic" column="goods_pic" />
+	    <result property="goods_price" column="goods_price" />
+	    <result property="goods_creatime" column="goods_creatime" />
+	    
+	    <association property="type" javaType="com.tarena.entity.Type">
+	        <id property="type_id" column="type_id" />
+	        <result property="type_name" column="type_name" />
+	    </association>	    
+	</resultMap>
+
+	<insert id="addGoods" parameterType="com.tarena.entity.Goods">
+		insert into cn_goods values(
+		#{goods_id,jdbcType=VARCHAR},
+		#{type.type_id,jdbcType=VARCHAR},
+		#{goods_name,jdbcType=VARCHAR},
+		#{goods_pic,jdbcType=VARCHAR},
+		#{goods_price,jdbcType=BIGINT},
+		#{goods_creatime,jdbcType=TIMESTAMP}
+		)
+	</insert>
+	
+	<update id="updateGood" parameterType="com.tarena.entity.Goods">
+		update cn_goods set 
+		type_id=#{type.type_id,jdbcType=VARCHAR},
+		goods_name=#{goods_name,jdbcType=VARCHAR},
+		goods_pic=#{goods_pic,jdbcType=VARCHAR},
+		goods_price=#{goods_price,jdbcType=BIGINT},
+		goods_creatime=#{goods_creatime,jdbcType=TIMESTAMP}
+		where 	goods_id=#{goods_id,jdbcType=VARCHAR}
+	</update>
+
+	<select id="findById" resultMap="resultGoodsTypeList">
+		select cn_goods.goods_id,cn_goods.goods_name,cn_goods.goods_pic,cn_goods.goods_price,
+		cn_goods.goods_creatime,cn_type.type_id,cn_type.type_name
+		 from cn_goods ,cn_type  where cn_type.type_id=cn_goods.type_id and cn_goods.goods_id=#{id}
+	</select> 
+	 <select id="findAllListPage" resultMap="resultGoodsTypeList">
+		select cn_goods.goods_id,cn_goods.goods_name,cn_goods.goods_pic,cn_goods.goods_price,
+		cn_goods.goods_creatime,cn_type.type_id,cn_type.type_name
+		 from cn_goods ,cn_type  where cn_type.type_id=cn_goods.type_id order by cn_goods.goods_creatime  desc
+	</select> 
+	
+	<select id="findTypeById" resultType="String">
+		select type_name from cn_type where type_id=#{id}  
+	</select>
+	
+	<select id="findGoodsListPage" resultMap="resultGoodsTypeList">
+		select cn_goods.goods_id,cn_goods.goods_name,cn_goods.goods_pic,cn_goods.goods_price,
+		cn_goods.goods_creatime,cn_type.type_id,cn_type.type_name
+		 from cn_goods ,cn_type where cn_type.type_id=cn_goods.type_id
+		<if test="goods_name!='' and type_id==null">
+			and cn_goods.goods_name like  CONCAT('%',#{goods_name},'%')
+		</if>
+		<if test="goods_name!='' and type_id!=null">
+			and cn_goods.goods_name like  CONCAT('%',#{goods_name},'%') and cn_goods.type_id=#{type_id}
+		</if>
+		<if test="goods_name=='' and type_id!=null">
+			and cn_goods.type_id=#{type_id}
+		</if>
+			order by cn_goods.goods_creatime 
+	</select>
+	
+	<delete id="deleteGood" >
+		delete from cn_goods where goods_id=#{goods_id}
+	</delete> 
+	
+		
+	<!-- 曹磊 -->
+	<select id="findTop" resultMap="resultGoodsTypeList">
+		select cn_goods.goods_id,cn_goods.goods_name,cn_goods.goods_pic,cn_goods.goods_price,
+		cn_goods.goods_creatime,cn_type.type_id,cn_type.type_name
+		 from cn_goods ,cn_type  where cn_type.type_id=cn_goods.type_id limit 0,10 
+	</select>
+	
+	<select id="loadByType" parameterType="string" resultMap="resultGoodsTypeList">
+		select cn_goods.goods_id,cn_goods.goods_name,cn_goods.goods_pic,cn_goods.goods_price,
+		cn_goods.goods_creatime,cn_type.type_id,cn_type.type_name
+		 from cn_goods ,cn_type  where cn_type.type_id=cn_goods.type_id and cn_goods.type_id = #{typeId}
+	</select>
+	<select id="findPageByType" resultMap="resultGoodsTypeList">
+		select cn_goods.goods_id,cn_goods.goods_name,cn_goods.goods_pic,cn_goods.goods_price,
+		cn_goods.goods_creatime,cn_type.type_id,cn_type.type_name
+		 from cn_goods ,cn_type  where cn_type.type_id=cn_goods.type_id and cn_goods.type_id = #{0} limit #{1},#{2}
+	</select>
+	<select id="findPageByAll" resultMap="resultGoodsTypeList">
+		select cn_goods.goods_id,cn_goods.goods_name,cn_goods.goods_pic,cn_goods.goods_price,
+		cn_goods.goods_creatime,cn_type.type_id,cn_type.type_name
+		 from cn_goods ,cn_type  where cn_type.type_id=cn_goods.type_id limit #{0},#{1}
+	</select>
+	
+	<select id="findCountByType" resultType="integer" parameterType="string">
+		select count(*) from cn_goods where type_id=#{typeId}
+	</select>
+	<select id="findCount" resultType="integer">
+		select count(*) from cn_goods 
+	</select>
+	
+	
+</mapper>

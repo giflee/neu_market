@@ -1,0 +1,522 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+}
+
+body, input, button {
+    font-size: 14px;
+    font-family: "寰蒋闆呴粦";
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body.gray-bg {
+    background: #e2e2e2;
+}
+
+.error-text {
+    color: #f00;
+}
+
+/*鐧诲綍椤甸潰*/
+.login-header {
+    height: 70px;
+}
+
+.login-header .content, .login-main .content, .register-main .content, .login-footer .content {
+    width: 960px;
+    margin: auto;
+}
+
+.login-header .logo {
+    width: 300px;
+    height: 42px;
+    background: url("./img/logo.png") no-repeat;
+    position: relative;
+    position: relative;
+    top: 15px;
+}
+
+.login-main {
+    height: 480px;
+    padding-top: 80px;
+    background: #000 url("img/login_back.jpg") 50% 50% no-repeat;
+    clear: both;
+}
+
+.login-main .login-panel {
+    width: 280px;
+    height: 340px;
+    padding: 20px;
+    background: #fff;
+    float: right;
+}
+
+.login-main .login-panel h1 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.login-main .login-panel label {
+    display: block;
+    float: left;
+    padding: 20px 0 5px 0;
+}
+
+.login-main .login-panel .user-name,
+.login-main .login-panel .password {
+    border: solid 1px #ccc;
+    background: #fff;
+    height: 38px;
+    width: 258px;
+    line-height: 38px;
+    padding: 0 10px 0 10px;
+}
+
+.login-main .login-panel .user-name.error,
+.login-main .login-panel .password.error {
+    border: solid 1px #f00;
+}
+
+.login-main .login-panel .row {
+    padding: 20px 0 20px 0;
+}
+
+.login-main .login-panel a {
+    color: #34A150;
+    text-decoration: none;
+}
+
+.login-main .login-panel a:hover {
+    color: #14552B;
+    text-decoration: underline;
+}
+
+.login-main .login-panel .btn-login {
+    width: 280px;
+    height: 40px;
+    font-size: 16px;
+    border: 0;
+    background: #34A150;
+    color: #fff;
+}
+
+.login-footer {
+    padding: 20px 0 40px 0;
+    text-align: center;
+}
+
+/*娉ㄥ唽椤甸潰鍙婂瘑鐮佷慨鏀广�鎵惧洖椤甸潰*/
+.register-header {
+    height: 70px;
+}
+
+.register-header .content, .login-main .content, .register-main .content, .login-footer .content {
+    width: 960px;
+    margin: auto;
+}
+
+.register-header .logo {
+    width: 300px;
+    height: 42px;
+    background: url("img/logo.png") no-repeat;
+    position: relative;
+    position: relative;
+    top: 15px;
+}
+
+.register-main {
+    padding: 60px 0;
+    border-top: solid 1px #D9DADC;
+    border-bottom: solid 1px #D9DADC;
+    background: #E7E8EB;
+}
+
+.register-main .content {
+    width: 860px;
+    background: #fff;
+    padding: 50px;
+    position: relative;
+}
+
+.register-main .content .register-right {
+    position: absolute;
+    height: 500px;
+    border-left: solid 1px #E7E7EB;
+    padding: 30px 0 0 50px;
+    right: 300px;
+    top: 50px;
+}
+
+.register-main .register-panel {
+    width: 350px;
+}
+
+.register-main .register-panel .desc {
+    color: #999;
+    line-height: 24px;
+}
+
+.register-main .register-panel h1 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.register-main .register-panel label {
+    display: block;
+    padding: 20px 0 5px 0;
+}
+
+.register-main .register-panel .user-name,
+.register-main .register-panel .password,
+.register-main .register-panel .code {
+    border: solid 1px #ccc;
+    background: #fff;
+    height: 38px;
+    width: 298px;
+    line-height: 38px;
+    padding: 0 10px 0 10px;
+}
+
+.register-main .register-panel .user-name.error,
+.register-main .register-panel .password.error,
+.register-main .register-panel .code.error {
+    border: solid 1px #f00;
+}
+
+.register-main .register-panel .row {
+    padding: 20px 0 20px 0;
+}
+
+.register-main .register-panel a,
+.register-main .register-right a {
+    color: #34A150;
+    text-decoration: none;
+}
+
+.register-main .register-panel a:hover,
+.register-main .register-right a:hover {
+    color: #14552B;
+    text-decoration: underline;
+}
+
+.register-main .register-panel .btn-register,
+.register-main .register-panel .btn-send-mail {
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    border: 0;
+    background: #34A150;
+    color: #fff;
+}
+
+.register-footer {
+    padding: 20px 0 40px 0;
+    text-align: center;
+}
+
+/*鐧诲綍鍚庯紝涓汉涓績椤甸潰*/
+.header {
+    height: 40px;
+    background: #444;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header .content {
+    max-width: 1240px;
+    min-width: 960px;
+    margin: auto;
+}
+
+.header .logo {
+    width: 200px;
+    height: 40px;
+    background: url("img/logo_white.png") no-repeat;
+    float: left;
+}
+
+.header .qlink {
+    text-align: right;
+    width: 400px;
+    float: right;
+    margin-top: 10px;
+}
+
+.header .qlink a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.banner {
+    margin-top: 40px;
+    height: 120px;
+    background: #8ABE5C;
+    position: relative;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.banner .content {
+    max-width: 1240px;
+    min-width: 960px;
+    margin: auto;
+}
+
+.banner .photo {
+    float: left;
+    margin-top: 15px;
+    margin-right: -90px;
+    width: 90px;
+    height: 90px;
+    background: url("img/member_photo.png");
+}
+
+.banner .menu {
+    float: right;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.banner .menu ul {
+    margin-left: 120px;
+    display: block;
+    height: 50px;
+    padding: 0 10px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.banner .menu ul li {
+    line-height: 50px;
+    font-size: 20px;
+    display: inline-block;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.banner .menu ul li.selected {
+    color: #10ae58;
+}
+
+.page-body {
+    background: #eee;
+}
+
+.page-body .content {
+    max-width: 1240px;
+    min-width: 960px;
+    padding: 20px 0;
+    margin: auto;
+    position: relative;
+    clear: both;
+}
+
+.page-body .content .major-table {
+    border-collapse: collapse;
+    widtH: 100%;
+    margin: 20px 0;
+}
+
+.page-body .content .major-table th {
+    width: 200px;
+    vertical-align: middle;
+}
+
+.page-body .content .major-table th, td {
+    border: solid 1px #ccc;
+    padding: 10px;
+    line-height: 30px;
+}
+
+.page-body .content .major-table a {
+    margin-right: 10px;
+    color: #34A150;
+    text-decoration: none;
+}
+
+.page-body .content .major-table a:hover {
+    color: #14552B;
+    text-decoration: underline;
+}
+
+.page-body .left-menu {
+    float: left;
+    margin-right: -240px;
+    position: relative;
+    width: 240px;
+    min-height: 460px;
+    background: #fff;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.page-body .left-menu ul {
+
+}
+
+.page-body .left-menu ul li {
+    font-size: 16px;
+    height: 60px;
+    line-height: 60px;
+    border-bottom: solid 1px #ddd;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.page-body .left-menu ul li.selected {
+    background: #10AE58;
+    color: #fff;
+}
+
+.page-body .left-menu ul li.disabled {
+    color: #ccc;
+}
+
+.page-body .right-content {
+    width: 100%;
+    float: right;
+}
+
+.page-body .right-content .main-content {
+    margin: 0 0 30px 260px;
+}
+
+.page-body .white-box {
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.page-body .white-box h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.page-body .white-box .detail {
+    margin-top: 10px;
+    border: solid 1px #ddd;
+    padding: 10px;
+}
+
+.page-body .white-box .photo-box {
+    width: 200px;
+    height: 300px;
+    padding: 5px;
+    border: solid 1px #ccc;
+    background: url("img/photo.jpg") 50% 50% no-repeat;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.page-body .white-box .audit-content {
+    min-height: 320px;
+    display: none;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.page-body .white-box .audit-content.show {
+    display: block;
+}
+
+.page-body .white-box .audit-content p {
+    width: 500px;
+    line-height: 26px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.page-body .white-box .audit-content .btn-submit {
+    margin-top: 30px;
+}
+
+.page-body .white-box .payment-content {
+    min-height: 370px;
+    display: none;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.page-body .white-box .payment-content.show {
+    display: block;
+}
+
+.page-body .white-box .payment-content .order-block {
+    text-align: left;
+    line-height: 26px;
+    width: 300px;
+    border: solid 1px #ccc;
+    background: #eee;
+    padding: 20px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.page-body .white-box .payment-content .btn-submit {
+    margin-top: 30px;
+}
+
+.page-body .form label.title {
+    display: block;
+    padding: 20px 0 5px 0;
+}
+
+.page-body .form input.text,
+.page-body .form select {
+    border: solid 1px #ccc;
+    background: #fff;
+    height: 38px;
+    width: 298px;
+    line-height: 38px;
+    padding: 0 10px 0 10px;
+}
+
+.page-body .form input.text.error,
+.page-body .form select.error {
+    border: solid 1px #f00;
+}
+
+.page-body .form .row {
+    padding: 20px 0 20px 0;
+}
+
+.page-body .form a {
+    color: #34A150;
+    text-decoration: none;
+}
+
+.page-body .form a:hover {
+    color: #14552B;
+    text-decoration: underline;
+}
+
+.page-body .form .btn-submit {
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    border: 0;
+    background: #34A150;
+    color: #fff;
+    cursor: pointer;
+}
+
+.footer {
+    padding: 10px 0 40px 0;
+    text-align: center;
+    border-top: solid 1px #C0C0C0;
+}

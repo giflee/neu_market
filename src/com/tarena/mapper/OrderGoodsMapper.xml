@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tarena.dao.OrderGoodsMapper">
+	<insert id="save" parameterType="com.tarena.entity.OrderGoods">
+		insert into cn_order_goods values(
+			#{order_goods_id,jdbcType=VARCHAR},
+			#{order.order_id,jdbcType=VARCHAR},
+			#{goods_name,jdbcType=VARCHAR},
+			#{good_price,jdbcType=DOUBLE},
+			#{order_goods_num,jdbcType=INTEGER}
+		)
+	
+	</insert>
+</mapper>

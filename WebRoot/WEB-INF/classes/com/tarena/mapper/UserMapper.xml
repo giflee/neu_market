@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tarena.dao.UserMapper">
+	<select id="findUserListPage" resultType="com.tarena.entity.User">
+		select * from cn_user
+	</select>
+	
+	<select id="adminFindByUserName" resultType="com.tarena.entity.User">
+		select * from cn_user where user_name like CONCAT('%',#{userName},'%')
+	</select>
+	
+	<update id="adminUpdateUserPwd">
+		update cn_user set user_password = #{1} where user_id = #{0} 
+	</update>
+	
+	<select id="findByName" resultType="com.tarena.entity.User">
+		select * from cn_user where user_name=#{user_name}
+	</select>
+	
+	<insert id="register" parameterType="com.tarena.entity.User">
+		insert into cn_user values(
+		#{user_id,jdbcType=VARCHAR},
+		#{user_name,jdbcType=VARCHAR},
+		#{user_password,jdbcType=VARCHAR},
+		#{user_email,jdbcType=VARCHAR}
+		)
+	</insert>
+</mapper>

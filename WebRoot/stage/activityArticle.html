@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>超级外卖微信订餐系统</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="description">
+<meta content="" name="author">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../css//font-awesome.min.css" rel="stylesheet"
+	type="text/css">
+<link href="../css/css.css" rel="stylesheet" type="text/css">
+<script src="../js/jquery.js"></script>
+ <script type="text/javascript" src="../js/stage/main.js"></script>
+<script src="../js/cookie.js"></script>
+<script type="text/javascript" src="../js/stage/page_pre.js"></script>
+<script type="text/javascript" src="../js/stage/base.js"></script>
+</head>
+
+<body>
+<div class="head_top hidden-xs" style="margin-bottom:20px;">
+		<div class="container">
+			<span id="user_name">您好</span>，欢迎光临网上超市系统！ <a  rel="nofollow" onclick="logout();" disabled>退出</a><span class="pull-right">
+			<a
+				href="register.html" rel="nofollow" id="user_register">注册</a> <a rel="nofollow"
+				href="userlogin.html" id="user_login">登录</a> <a href="order.html" rel="nofollow" id="user_order">我的订单</a>
+			</span>
+		</div>
+	</div>
+	<div class="container hidden-xs" style="margin-top:5px;">
+		<div class="row hidden-xs">
+			<div class="col-md-3 col-xs-7">
+				<a href="javascript:void(0);"><img src="../images/logo.png"></a>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-5"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2 col-xs-5"></div>
+		</div>
+	</div>
+
+	<!-- begin container -->
+	<div class="container hidden-xs">
+		<div class="masthead">
+			<ul class="nav nav-justified">
+				<li><a href="main.html">首页</a></li>
+				<li><a href="activityArticle.html">优惠活动</a></li>
+				<li><a href="order.html" >我的订单</a></li>
+				<li><a href="problemArticle.html">帮助中心</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+
+	<div class=" container " style="margin-top:10px">
+		<div class="panel-body">
+			<div class="row">
+
+
+				<div class="col-md-3">
+					
+					<div class="list-group">
+						<!--  
+						<a href="javascript:void(0);"
+							class="list-group-item list-border">常见问题</a><a
+							href="javascript:void(0);"
+							class="list-group-item list-border">优惠活动</a>
+							-->
+					</div>
+				</div>
+
+
+
+				<div class="col-md-9 ">
+					<div class="panel panel-default" style="min-height:400px">
+						<div class="panel-heading">
+							<h3 class="panel-title"></h3>
+						</div>
+						<div class="panel-body">
+							<p align="center" style="font-size:18px;margin-top:15px;">
+								<b id="article_title">满100元送礼品<small></small></b>
+							</p>
+							<div style="font-size:14px;">
+								<p id="article_body">满100元送16cm公仔一枚</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<div class="footer">
+		<div class="container">
+			<p align="center">© 2014 超级外卖微信订餐系统 ICP备19042558号</p>
+			<p align="center" class="ps">
+				程序由<a title="超级外卖" href="javascript:void(0);">超级外卖</a>提供
+			</p>
+		</div>
+	</div>
+
+
+
+
+
+
+
+	<!-- end container -->
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/Validform_v5.3.2_min.js"></script>
+	<script type="text/javascript" src="../js/stage/activityArticle.js"></script>
+	<script>
+		$(function() {
+			//$(".registerform").Validform();  //就这一行代码！;
+
+			$(".form-horizontal").Validform({
+				tiptype : 2
+			});
+		})
+		
+	</script>
+	<script type="text/javascript" src="../js/page_webInfo.js"></script>
+	 <script type="text/javascript">
+	 	$(function(){	 		
+	 		replaceInfo();
+	 	});
+	 </script>
+
+
+</body>
+</html>

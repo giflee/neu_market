@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script src="js/base.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/page_webInfo.js"></script>
+</head>
+<body>
+<div class="uk-container uk-container-center">
+	<div class="uk-clearfix control-bar" data-uk-sticky="{top:56}">
+	
+			<button
+				class="uk-button uk-button-primary uk-button-large uk-float-right"
+				id="pass_btn" style="float:left;">使用勾选方案
+			</button>
+			<button
+				class="uk-button uk-button-primary uk-button-large uk-float-right"
+				id="problem_btn_create"
+				data-uk-modal="{target:'#create_problem_panel',bgclose:false}">新建问题
+			</button>
+		</div>
+	</div>
+
+<div class="data-table">
+    <table class="uk-table uk-table-hover uk-table-striped">
+        <thead>
+        <tr>
+            <th><input type="checkbox"></th>
+            <th>标题</th>
+            <th>欢迎语</th>
+			<th>导航1</th>
+			<th>导航2</th>
+			<th>导航3</th>
+			<th>导航4</th>
+			<th>页脚</th>
+			<th>版权信息</th>
+			<th>操作</th>
+        </tr>
+        </thead>
+        <tbody id="problem_tbody">
+     	
+        </tbody>
+    </table>
+</div>
+<div class="uk-float-right">
+    <ul class="uk-pagination" ></ul>
+</div>
+
+<div id="create_problem_panel" class="uk-modal">
+	<div class="uk-modal-dialog uk-modal-dialog-frameless">
+		<a href="" class="uk-modal-close uk-close"></a>
+
+		<form class="uk-form" id="info_form_1">
+			<fieldset>
+				<legend>新建网站信息</legend>
+				<div class="uk-form-row">
+					<label>网站标题</label> <input type="text" placeholder="请输入标题名称"
+						id="edit_problem_title_2">
+				</div>
+				<div class="uk-form-row">
+					<label>欢迎语</label> <input type="textarea" placeholder="请输入内容 "
+						id="edit_problem_body_2">
+				</div>
+				<div class="uk-form-row">
+					<label>导航1</label> <input type="textarea" placeholder="请输入内容 "
+						id="edit_problem_nav1_2">
+				</div>
+				<div class="uk-form-row">
+					<label>导航2</label> <input type="textarea" placeholder="请输入内容 "
+						id="edit_problem_nav2_2">
+				</div>
+				<div class="uk-form-row">
+					<label>导航3</label> <input type="textarea" placeholder="请输入内容 "
+						id="edit_problem_nav3_2">
+				</div>
+				<div class="uk-form-row">
+					<label>导航4</label> <input type="textarea" placeholder="请输入内容 "
+						id="edit_problem_nav4_2">
+				</div>
+				<div class="uk-form-row">
+					<label>页脚信息</label> <textarea rows="3" cols="20" id="edit_problem_footer_2"></textarea>
+				</div>
+				<div class="uk-form-row">
+					<label>版权信息</label> <textarea rows="3" cols="20" id="edit_problem_maker_2"></textarea>
+				</div>
+
+			</fieldset>
+			<!--<hr class="uk-article-divider">  -->
+			
+			
+			<div class="uk-clearfix">
+				<button
+					class="uk-button uk-button-large uk-float-right uk-modal-close">取消</button>
+				<button
+					class="uk-button uk-button-primary uk-button-large uk-float-right uk-margin-right uk-modal-close"
+					id="problem_btn_create_save">保存</button>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- 修改-->
+<div id="edit_problem_panel" class="uk-modal">
+	<div class="uk-modal-dialog uk-modal-dialog-frameless">
+		<a href="" class="uk-modal-close uk-close"></a>
+
+		<form class="uk-form" id="webinfo-form">
+			<fieldset>
+				<legend>修改网站信息</legend>
+				<div class="uk-form-row" style="display:none;">
+					<label>网站id</label> <input type="text" 
+						id="edit_problem_id" name="web_id">
+				</div>
+				<div class="uk-form-row">
+					<label>网站标题</label> <input type="text" 
+						id="edit_problem_title" name="web_title">
+				</div>
+				<div class="uk-form-row">
+					<label>欢迎语</label> <input type="textarea" placeholder="请输入内容 "
+						id="edit_problem_body" name="web_words">
+				</div>
+				<div class="uk-form-row">
+					<label>导航1</label> <input type="textarea" placeholder="请输入内容 "
+						id="edit_problem_nav1" name="web_nav1">
+				</div>
+				<div class="uk-form-row">
+					<label>导航2</label> <input type="textarea" placeholder="请输入内容 "
+						id="edit_problem_nav2" name="web_nav2">
+				</div>
+				<div class="uk-form-row">
+					<label>导航3</label> <input type="textarea" placeholder="请输入内容 "
+						id="edit_problem_nav3" name="web_nav3">
+				</div>
+				<div class="uk-form-row">
+					<label>导航4</label> <input type="textarea" placeholder="请输入内容 "
+						id="edit_problem_nav4" name="web_nav4">
+				</div>
+				<div class="uk-form-row">
+					<label>页脚信息</label> <textarea rows="3" cols="20" id="edit_problem_footer" name="web_footer"></textarea>
+				</div>
+				<div class="uk-form-row">
+					<label>版权信息</label><textarea rows="3" cols="20" id="edit_problem_maker" name="web_maker"></textarea>
+				</div>
+
+			</fieldset>
+			<!--<hr class="uk-article-divider">  -->
+			
+			
+			<div class="uk-clearfix">
+				<button
+					class="uk-button uk-button-large uk-float-right uk-modal-close">取消</button>
+				<button
+					class="uk-button uk-button-primary uk-button-large uk-float-right uk-margin-right uk-modal-close"
+					id="problem_btn_create_update">保存</button>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- 删除问题确认对话框 -->
+<div id="delete_problem_panel" class="uk-modal">
+    <div class="uk-modal-dialog uk-modal-dialog-frameless confirm-panel">
+        <h2>确认</h2>
+        <p>是否删除该问题？</p>
+		<p>此操作会删除包含的所有信息!</p>
+        <button class="uk-button uk-button-primary uk-button-large uk-width-1-3 uk-margin-right uk-modal-close"
+                id="problem_btn_confire_delete">确定
+        </button>
+        <button class="uk-button uk-button-large uk-width-1-3 uk-modal-close">取消</button>
+    </div>
+</div>
+</body>
+</html>

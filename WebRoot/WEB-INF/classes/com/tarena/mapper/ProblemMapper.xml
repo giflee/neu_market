@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tarena.dao.ProblemMapper">
+    <select id="find" resultType="com.tarena.entity.Problem">
+	    select * from cn_problem
+	</select>
+	<insert id="save" parameterType="com.tarena.entity.Problem">
+		insert into cn_problem values(
+			#{problem_id,jdbcType=VARCHAR},
+			#{problem_title,jdbcType=VARCHAR},
+			#{problem_body,jdbcType=VARCHAR},
+			#{problem_time,jdbcType=TIMESTAMP}
+		)
+	</insert>
+	<delete id="delete" parameterType="String">
+	    delete from cn_problem where problem_id=#{problem_id,jdbcType=VARCHAR}
+	</delete>
+	<update id="update" parameterType="com.tarena.entity.Problem">
+	    update cn_problem set 
+		   problem_title=#{problem_title,jdbcType=VARCHAR},
+		   problem_body=#{problem_body,jdbcType=VARCHAR}
+<!--	   problem_time=#{problem_time,jdbcType=TIMESTAMP}   -->
+		 where problem_id=#{problem_id,jdbcType=VARCHAR}
+	</update>
+	<select id="findById" parameterType="String" resultType="com.tarena.entity.Problem">
+	    select * from cn_problem where problem_id=#{problem_id,jdbcType=VARCHAR}
+	</select>
+</mapper>

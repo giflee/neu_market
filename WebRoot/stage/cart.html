@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>购餐车_超级外卖微信订餐系统</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="description">
+<meta content="" name="author">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../css/font-awesome.min.css" rel="stylesheet"
+	type="text/css">
+<link href="../css/css.css" rel="stylesheet" type="text/css">
+<script src="../js/jquery.js"></script>
+<script src="../js/simpleCart.min.js"></script>
+<link href="../css/cart.css" rel="stylesheet" type="text/css">
+</head>
+<!-- BEGIN BODY -->
+<body>
+	<div class="head_top hidden-xs">
+		<div class="container">
+			你好，欢迎光临网上超市系统！ <span class="pull-right"> <a
+				href="register.html" rel="nofollow">注册</a> <a rel="nofollow"
+				href="login.html">登录</a> <a href="order.html" rel="nofollow">我的订单</a>
+			</span>
+		</div>
+	</div>
+	<!-- begin container -->
+	<div class="container " style="margin-top:5px;">
+		<div class="row hidden-xs">
+			<div class="col-md-3 col-xs-7">
+				<a href="main.html"><img
+					src="../images/logo.png"></a>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-5"></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2 col-xs-5"></div>
+		</div>
+	</div>
+	<div class=" container " style="margin-top:10px">
+		<div class="panel panel-cart">
+			<div class="panel-heading">
+				<h3 class="panel-title">购物车</h3>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="simpleCart_items">
+							<div>
+								<div class="headerRow">
+									<div class="item-name">商品</div>
+									<div class="item-price">单价</div>
+									<div class="item-decrement"></div>
+									<div class="item-quantity">数量</div>
+									<div class="item-increment"></div>
+									<div class="item-total">总价</div>
+									<div class="item-remove"></div>
+								</div>
+								<div class="itemRow row-0 odd" id="cartItem_SCI-1">
+									<div class="item-name">1.25升装百事可乐</div>
+									<div class="item-price">¥12.00</div>
+									<div class="item-decrement">
+										<a href="javascript:;" class="simpleCart_decrement">-</a>
+									</div>
+									<div class="item-quantity">1</div>
+									<div class="item-increment">
+										<a href="javascript:;" class="simpleCart_increment">+</a>
+									</div>
+									<div class="item-total">¥12.00</div>
+									<div class="item-remove">
+										<a href="javascript:;" class="simpleCart_remove">删除</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div style="clear:left"></div>
+						<hr>
+						<div class="">
+							<div class="count">
+								数量: <span class="simpleCart_quantity">1</span>
+							</div>
+							<!-- <div class="ship">
+								配送费: <span class="simpleCart_shipping">¥100.00</span>
+							</div> -->
+							<p class="grand">
+								合计总额: <span class="simpleCart_grandTotal">¥112.00</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="well">
+					<!--判定是否为登录用户-->
+					<div class="form-horizontal">
+						<div class="form-group fps">
+							<div for="inputEmail3" class="col-sm-2 control-label">收货人：</div>
+							<div class="col-sm-3">
+								<input type="text" class="form-control Validform_error"
+									name="oman" id="oman" placeholder="请输入收货人姓名" datatype="*"
+									sucmsg="" nullmsg="请输入收货人姓名！" errormsg="">
+							</div>
+							<div class="col-sm-7 col-xs-12">
+								<div class="Validform_checktip Validform_wrong">请输入收货人姓名！</div>
+							</div>
+						</div>
+						<div class="form-group fps">
+							<div for="inputPassword3" class="col-sm-2 control-label">手机号：</div>
+							<div class="col-sm-3">
+
+								<input type="text" class="form-control Validform_error"
+									name="otel" id="otel" placeholder="请输入手机号" datatype="m"
+									sucmsg="" nullmsg="请输入手机号！" errormsg="手机号码不正确">
+							</div>
+							<div class="col-sm-7">
+								<div class="Validform_checktip Validform_wrong">请输入手机号！</div>
+							</div>
+						</div>
+						<div class="form-group fps">
+							<div for="inputEmail3" class="col-sm-2 control-label">地址：</div>
+							<div class="col-sm-4">
+								<input type="text" class="form-control Validform_error"
+									id="oaddress" name="oaddress" placeholder="请输入地址" datatype="*"
+									sucmsg="" nullmsg="请输入地址！" errormsg="">
+							</div>
+							<div class="col-sm-6">
+								<div class="Validform_checktip Validform_wrong">请输入地址！</div>
+							</div>
+						</div>
+						<div class="form-group fps">
+							<div for="inputEmail3" class="col-sm-2 control-label">送货时间</div>
+							<div class="col-sm-2">
+								<select class="form-control" id="days" name="days">
+									<option value="2015-07-23">2015-07-23</option>
+									<option value="2015-07-24">2015-07-24</option>
+								</select>
+							</div>
+							<div class="col-sm-2">
+								<select class="form-control" id="times" name="times">
+									<option value="17:00">17:00</option>
+									<option value="17:30">17:30</option>
+									<option value="18:00">18:00</option>
+									<option value="18:30">18:30</option>
+								</select>
+							</div>
+							<div class="col-sm-6"></div>
+						</div>
+						<div class="form-group fps">
+							<div for="inputEmail3" class="col-sm-2 control-label">备注：</div>
+							<div class="col-sm-4">
+								<span class="help-block"> <textarea class="form-control"
+										id="ocontent" name="ocontent" row="3"></textarea></span>
+							</div>
+							<div class="col-sm-6"></div>
+						</div>
+						<div class="form-group fps">
+							<div for="inputEmail3" class="col-sm-2 control-label">支付方式：</div>
+							<div class="col-sm-4">
+								<label class="radio-inline"> <input type="radio"
+									name="inlineRadioOptions" id="paytyle1" value="1" checked="">
+									货到付款
+								</label> <label class="radio-inline"> </label>
+							</div>
+							<div class="col-sm-6"></div>
+						</div>
+						<p align="center">
+							<a href="javascript:;" class="btn btn-danger simpleCart_checkout"><i
+								class="fa fa-shopping-cart"></i> 提交订单</a>
+						</p>
+					</div>
+				</div>
+				<!--if login end-->
+			</div>
+		</div>
+	</div>
+	
+	
+		<div class="footer">
+		<div class="container">
+			<p align="center">© 2014 超级外卖微信订餐系统 ICP备19042558号</p>
+			<p align="center" class="ps">
+				程序由<a title="超级外卖" href="javascript:void(0);">超级外卖</a>提供
+			</p>
+		</div>
+	</div>
+	<script type="text/javascript" src="../js/stage/base.js"></script>
+	<script>
+		simpleCart({
+			checkout : {
+				type : "SendForm",
+				url : project_name + "/stage/main/check_out.do",
+				method : "POST",
+			},
+			currency : "JPY",
+			shippingQuantityRate : 0,
+			shippingTotalRate : 0,
+			shippingFlatRate : 0,
+			cartColumns : [ {
+				attr : "name",
+				label : "商品"
+			}, {
+				attr : "price",
+				label : "单价",
+				view : 'currency'
+			}, {
+				view : "decrement",
+				label : false,
+				text : "-"
+			}, {
+				attr : "quantity",
+				label : "数量"
+			}, {
+				view : "increment",
+				label : false,
+				text : "+"
+			}, {
+				attr : "total",
+				label : "总价",
+				view : 'currency'
+			}, {
+				view : "remove",
+				text : "删除",
+				label : false
+			} ]
+		});
+	</script>
+	<script>
+		simpleCart.bind('beforeCheckout', function(data) {
+
+			//data.first_name = document.getElementById("first_name").value;
+
+			data.oman = document.getElementById("oman").value;
+			data.otel = document.getElementById("otel").value;
+			data.oaddress = document.getElementById("oaddress").value;
+			data.days = document.getElementById("days").value;
+			data.times = document.getElementById("times").value;
+
+			data.ocontent = document.getElementById("ocontent").value;
+			//data.paytype = document.getElementById("paytyle").value;
+			var zt = document.getElementsByName("inlineRadioOptions");
+			for (var i = 0; i < zt.length; i++) {
+				if (zt[i].checked) {
+
+					data.paytype = zt[i].value;
+				}
+			}
+			data.item_totals = simpleCart.grandTotal();
+			data.shopspay = simpleCart.shipping();
+		});
+	</script>
+	<script src="../js/bootstrap.min.js"></script>
+
+	<script src="../js/Validform_v5.3.2_min.js"></script>
+
+	<script>
+		$(function() {
+			//$(".registerform").Validform();  //就这一行代码！;
+
+			$(".form-horizontal").Validform({
+				tiptype : 2
+			});
+		})
+	</script>
+	<script type="text/javascript">
+	$(function(){
+		$op1 = $('<option value="2015-07-23">2015-07-23</option>');
+		var rrdays="";
+		for(var i = 0;i<=7;i++){
+			var now = new Date().getTime() +(i *24*60*60*1000);
+		var rtt = new Date(now);
+		var rdd = rtt.getDate();
+		if(rdd<10){
+		rdd="0"+rdd;
+		}
+		var ryy = rtt.getFullYear();
+		var rmm = rtt.getMonth()+1;
+		if(rmm<100){
+			rmm="0"+rmm;
+		}
+		var rdate = ryy+"-"+rmm+"-"+rdd;
+		rrdays+="<option value='"+rdate+"'>"+rdate+"</option>";
+		//alert(rdate);
+		}
+		var rtimes="";
+		for(var j = 8;j<20;j++){
+			var jj=j;
+			if(jj<10){
+				jj="0"+jj;
+			}
+			rtimes+="<option value='"+jj+":00'>"+jj+":00</option>";
+		}
+		$("#times").html(rtimes);;
+		$("#days").html(rrdays);
+		
+	});
+	</script>
+</body>
+</html>

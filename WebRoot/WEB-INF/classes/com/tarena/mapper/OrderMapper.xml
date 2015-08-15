@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tarena.dao.OrderMapper">
+	 <resultMap id="resultOrderGoodsList" type="com.tarena.entity.OrderGoods">
+	    <id property="order_goods_id" column="order_goods_id" />
+	    <result property="goods_name" column="goods_name" />
+	    <result property="good_price" column="good_price" />
+	    <result property="order_goods_num" column="order_goods_num" />
+	    <association property="order" javaType="com.tarena.entity.Order">
+	        <id property="order_id" column="order_id" />
+	        <result property="address" column="address" />
+	        <result property="order_status" column="order_status" />
+	        <result property="order_time" column="order_time" />
+	        <result property="receive_time" column="receive_time" />
+	        <result property="pay_way" column="pay_way" />
+	        <result property="address_person" column="address_person" />
+	        <result property="address_phone" column="address_phone" />
+	        <result property="order_price" column="order_price" />
+	        <result property="order_mark" column="order_mark" />
+	    </association>	    
+	</resultMap>
+	<!--通过ID查找订单与商品的详细数据-->
+	<select id="findById" resultMap="resultOrderGoodsList">
+		select  cn_order_goods.order_goods_id,cn_order_goods.goods_name,cn_order_goods.good_price,cn_order_goods.order_goods_num,
+		cn_order.order_id,cn_order.address,cn_order.order_status,cn_order.pay_way,cn_order.order_time,cn_order.receive_time,
+		cn_order.address_person,cn_order.address_phone,cn_order.order_price
+		from  cn_order,cn_order_goods 
+		where cn_order.order_id=cn_order_goods.order_id and cn_order.order_id=#{order_id}
+	</select> 
+	
+	<select id="findByPhone" parameterType="string" resultType="com.tarena.entity.Order">
+		select * from cn_order where address_phone=#{phone}
+	</select>
+	
+	<!-- 查找订单 -->
+	<select id="findOrderListPage" resultType="com.tarena.entity.Order">
+		select * from cn_order where 1=1
+		<if test="address_phone!='' and order_status!=''">
+			and address_phone=#{address_phone} and order_status=#{order_status}
+		</if>
+		<if test="address_phone=='' and order_status!=''">
+			and  order_status=#{order_status}
+		</if>
+		<if test="address_phone!='' and order_status==''">
+			and address_phone=#{address_phone}
+		</if>
+		order by order_time
+	</select>
+	
+	  <select id="findOrderPre" resultType="com.tarena.entity.Order">
+		select cn_order.order_id,cn_order.address,cn_order.order_status,cn_order.pay_way,cn_order.order_time,cn_order.receive_time,
+		cn_order.address_person,cn_order.address_phone,cn_order.order_price,cn_order.order_mark 
+		from cn_order,order_user
+		where cn_order.order_id=order_user.order_id  and order_user.user_id=#{user_id}
+	</select>  
+	
+	
+	
+	
+	
+	<!-- caolie -->
+	<update id="update" parameterType="com.tarena.entity.Order">
+			update cn_order  set 
+			address=#{address,jdbcType=VARCHAR},
+			order_status=#{order_status,jdbcType=INTEGER},
+			pay_way=#{pay_way,jdbcType=VARCHAR},
+			order_time=#{order_time,jdbcType=TIMESTAMP},
+			receive_time=#{receive_time,jdbcType=TIMESTAMP},
+			address_person=#{address_person,jdbcType=VARCHAR},
+			address_phone=#{address_phone,jdbcType=VARCHAR},
+			order_price=#{order_price,jdbcType=DOUBLE},
+			order_mark=#{order_mark,jdbcType=VARCHAR}
+			where order_id=#{order_id,jdbcType=VARCHAR}
+	</update>
+	
+	<insert id="save" parameterType="com.tarena.entity.Order">
+		insert into cn_order values(
+			#{order_id,jdbcType=VARCHAR},
+			#{address,jdbcType=VARCHAR},
+			#{order_status,jdbcType=INTEGER},
+			#{pay_way,jdbcType=VARCHAR},
+			#{order_time,jdbcType=TIMESTAMP},
+			#{receive_time,jdbcType=TIMESTAMP},
+			#{address_person,jdbcType=VARCHAR},
+			#{address_phone,jdbcType=VARCHAR},
+			#{order_price,jdbcType=DOUBLE},
+			#{order_mark,jdbcType=VARCHAR}
+		)
+	</insert>	
+	
+	<select id="findOrderById" parameterType="String" resultType="com.tarena.entity.Order">
+		select * from cn_order where order_id=#{order_id}
+	</select>
+	
+	
+	<insert id="saveUO" >
+		insert into order_user values(
+		#{order_user_id,jdbcType=VARCHAR},
+		#{order_id,jdbcType=VARCHAR},
+		#{user_id,jdbcType=VARCHAR}
+		)
+	</insert>
+</mapper>
